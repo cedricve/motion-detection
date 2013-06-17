@@ -76,7 +76,7 @@ int main (int argc, char * const argv[]){
     Mat prev_frame = cvQueryFrame(camera);
     Mat original2;
 	
-	cvtColor(current_frame, current_frame, CV_RGB2GRAY);
+    cvtColor(current_frame, current_frame, CV_RGB2GRAY);
     cvtColor(prev_frame, prev_frame, CV_RGB2GRAY);
     cvtColor(next_frame, next_frame, CV_RGB2GRAY);
 	
@@ -88,25 +88,25 @@ int main (int argc, char * const argv[]){
     Scalar sc2(0,0,255);
     
     while (true){
-        // Calculate differences between the images
+    
+        // Calc differences between the images
         absdiff(next_frame, current_frame, d1);
         absdiff(current_frame, prev_frame, d2);
         bitwise_xor(d1, d2, result);
         
         int middle_y = result.rows/2;
         int middle_x = result.cols/2;
-		int count = 0;
+	 int count = 0;
 		
         threshold(result, result, 50, 255, CV_THRESH_BINARY);
         Mat kernel_dil = getStructuringElement(MORPH_RECT, Size(7,7));
         erode(result, result, kernel_dil);
 			
-		
         for(int j = middle_y-window; j < middle_y+window; j++){
             for(int i = middle_x-window; i < middle_x+window; i++){
                 if(result.at<int>(j,i)>0)
                 {
-	    			count++;
+	    	     count++;
                     Point x((i-960)*4-30,j-30);
                     Point y((i-960)*4+30,j+30);
                     rectangle(original,x,y,sc2,1);
@@ -116,20 +116,22 @@ int main (int argc, char * const argv[]){
 
         }
         
-		// If a lot of changes happened on multiple rows
-		// we assume something big changed.
+	 // If a lot of changes happened on multiple rows
+	 // we assume something big changed.
         if(count>=7)
             saveImg(original,DIR,EXT,DIR_FORMAT.c_str(),FILE_FORMAT.c_str());
         
+
         prev_frame = current_frame;
         current_frame = next_frame;
-
         next_frame = cvQueryFrame(camera);
+
         cvtColor(next_frame, next_frame, CV_RGB2GRAY);
         
+        // Delay
         int key = cvWaitKey (DELAY);
 
     }
  	
-	return 0;    
+    return 0;    
 }
