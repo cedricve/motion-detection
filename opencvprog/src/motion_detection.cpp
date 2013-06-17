@@ -62,9 +62,9 @@ int main (int argc, char * const argv[]){
     string DIR_FORMAT = "%d%h%Y";
     string FILE_FORMAT = DIR_FORMAT + "/" + "%d%h%Y_%H%M%S";
     string TIME_FORMAT = "%H";    
+	
     // create all necessary instances
     CvCapture * camera = cvCaptureFromCAM(CV_CAP_ANY);
-    ///1920 x 1080
     cvSetCaptureProperty( camera, CV_CAP_PROP_FRAME_WIDTH, 1280 );
     cvSetCaptureProperty( camera, CV_CAP_PROP_FRAME_HEIGHT, 720 );
     
