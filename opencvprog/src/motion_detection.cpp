@@ -96,17 +96,17 @@ int main (int argc, char * const argv[]){
         
         int middle_y = result.rows/2;
         int middle_x = result.cols/2;
-	 int count = 0;
+	int count = 0;
 		
         threshold(result, result, 50, 255, CV_THRESH_BINARY);
         Mat kernel_dil = getStructuringElement(MORPH_RECT, Size(7,7));
         erode(result, result, kernel_dil);
-			
-        for(int j = middle_y-window; j < middle_y+window; j++){
-            for(int i = middle_x-window; i < middle_x+window; i++){
+
+	for(int j = middle_y-window+50; j < middle_y+window+100; j++){
+            for(int i = 500; i < middle_x+window*3; i++){
                 if(result.at<int>(j,i)>0)
                 {
-	    	     count++;
+                    count++;
                     Point x((i-960)*4-30,j-30);
                     Point y((i-960)*4+30,j+30);
                     rectangle(original,x,y,sc2,1);
@@ -114,11 +114,11 @@ int main (int argc, char * const argv[]){
                 }
             }
 
-        }
+        }			
         
 	 // If a lot of changes happened on multiple rows
 	 // we assume something big changed.
-        if(count>=7)
+        if(count>=30)
             saveImg(original,DIR,EXT,DIR_FORMAT.c_str(),FILE_FORMAT.c_str());
         
 
