@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.4)
 
-PROJECT(LABO1)
+PROJECT(MOTION_DETECTION)
 # paths 
 INCLUDE_DIRECTORIES(src)
 INCLUDE_DIRECTORIES(/usr/local/include)
@@ -12,7 +12,7 @@ SET(CMAKE_CXX_FLAGS "-o3 -w")
 SET(CMAKE_CXX_LINK_FLAGS "-pg")
 SET(OpenCV_LIBRARIES opencv_core opencv_highgui opencv_imgproc opencv_video)
 
-ADD_EXECUTABLE(opg1 src/motion_detection.cpp)
+ADD_EXECUTABLE(motion src/motion_detection.cpp)
 TARGET_LINK_LIBRARIES(motion ${OpenCV_LIBRARIES})
 
 SET(CMAKE_BUILD_TYPE Release)
