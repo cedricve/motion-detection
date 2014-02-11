@@ -1,0 +1,67 @@
+body{
+	font-family: Helvetica,Arial;
+	font-size: 13px;
+}
+
+a{
+	color: #333;
+	text-decoration: none;
+}
+
+div.month{
+	font-size: 30px;
+	font-weight: bold;
+	padding-bottom: 20px;
+}
+
+ul#month_list {
+	margin: 0;
+	padding: 0;
+	margin: 0 0 40px 0;
+	list-style: square;
+}
+
+ul#month_list li{
+	
+}
+
+ul#number_list{
+	list-style: none;
+	overflow: hidden;
+	margin: 0 0 20px 0;
+	padding: 0;
+}
+
+.button {
+	padding: 10px;
+	color: #fff;
+	margin: 0 10px 0 0;
+	background: #333;
+	border: 2px #666 solid;
+	font-size: 20px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	text-decoration: none;
+}
+
+a.button {
+	text-decoration: none;
+}
+
+ul#number_list li{
+	float:left;
+	padding: 20px;
+	margin: 0 10px 0 0;
+	background: #333;
+	color: #fff;
+	border: 3px #666 solid;
+	font-size: 20px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+ul#number_list li a{
+	text-decoration: none;
+	color: #000;
+	font-size: 20px;
+}
