@@ -134,7 +134,7 @@ int main (int argc, char * const argv[])
     cvtColor(next_frame, next_frame, CV_RGB2GRAY);
     
     // d1 and d2 for calculating the differences
-    // result, the result of xor operation, calculated on d1 and d2
+    // result, the result of and operation, calculated on d1 and d2
     // number_of_changes, the amount of changes in the result matrix.
     // color, the color for drawing the rectangle when something has changed.
     Mat d1, d2, motion;
@@ -144,20 +144,18 @@ int main (int argc, char * const argv[])
     // Detect motion in window
     int x_start = 10, x_stop = current_frame.cols-11;
     int y_start = 350, y_stop = 530;
-    Point left_top(x_start,y_start);
-    Point bottom_right(x_stop,y_stop);
 
-    // If more than 'there_is_motion' pixels are changed, we say there is moition
+    // If more than 'there_is_motion' pixels are changed, we say there is motion
     // and store an image on disk
     int there_is_motion = 5;
     
     // Maximum deviation of the image, the higher the value, the more motion is allowed
     int max_deviation = 20;
     
-    // erode kernel
+    // Erode kernel
     Mat kernel_ero = getStructuringElement(MORPH_RECT, Size(2,2));
     
-    // All settngs have been set, now go in endless loop and
+    // All settings have been set, now go in endless loop and
     // take as many pictures you want..
     while (true){
         // Take a new image
@@ -167,7 +165,7 @@ int main (int argc, char * const argv[])
         result = next_frame;
         cvtColor(next_frame, next_frame, CV_RGB2GRAY);
 
-        // Calc differences between the images and do XOR-operation
+        // Calc differences between the images and do AND-operation
         // threshold image, low differences are ignored (ex. contrast change due to sunlight)
         absdiff(prev_frame, next_frame, d1);
         absdiff(next_frame, current_frame, d2);
