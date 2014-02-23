@@ -117,10 +117,10 @@ inline int detectMotion(const Mat & motion, Mat & result, Mat & result_cropped,
 
 int main (int argc, char * const argv[])
 {
-    const string DIR = "/home/pi/homesecurity/pics/"; // directory where the images will be stored
+    const string DIR = "/home/pi/motion_src/pics/"; // directory where the images will be stored
     const string EXT = ".jpg"; // extension of the images
     const int DELAY = 500; // in mseconds, take a picture every 1/2 second
-    const string LOGFILE = "/home/pi/homesecurity/log";
+    const string LOGFILE = "/home/pi/motion_src/log";
 
     // Format of directory
     string DIR_FORMAT = "%d%h%Y"; // 1Jan1970

@@ -134,10 +134,10 @@ void parseRegionXML(string file_region, vector<Point2f> &region){
 
 int main (int argc, char * const argv[])
 {
-    const string DIR = "/home/pi/homesecurity/pics/"; // directory where the images will be stored
+    const string DIR = "/home/pi/motion_src/pics/"; // directory where the images will be stored
     const string EXT = ".jpg"; // extension of the images
-    const int DELAY = 10; // in mseconds, take a picture every 1/2 second
-    const string LOGFILE = "/home/pi/homesecurity/log";
+    const int DELAY = 500; // in mseconds, take a picture every 1/2 second
+    const string LOGFILE = "/home/pi/motion_src/log";
     
     // Format of directory
     string DIR_FORMAT = "%d%h%Y"; // 1Jan1970
@@ -168,7 +168,7 @@ int main (int argc, char * const argv[])
     Scalar mean_, color(0,255,255); // yellow
     
     // Detect motion in a region in steadof window
-    string file_region = "../region.xml";
+    string file_region = "/home/pi/motion_src/region.xml";
     vector<Point2f> region;
     parseRegionXML(file_region, region);
     
