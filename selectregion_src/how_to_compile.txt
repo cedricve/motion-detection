@@ -1,0 +1,18 @@
+1
+-----
+
+Install opencv:
+	- you can use macports or homebre
+	- macports will store files in /opt/local
+		$ sudo port install opencv 
+2
+-----
+On Ubuntu: 
+	- go to this directory and type make, CMakeLists.txt file will be parsed and executed. Make sure the path to opencv is correct. It depends on how you did the installation. When using macports everything should be oké.
+
+On OSX:
+	- create a XCode Project and attach libraries (/opt/local/lib & /opt/local/include) to search paths in the project configuration tab/
+
+	- or with terminal -> g++, go to the src directory and type: 
+
+		$ g++ selectregion.cpp tinyxml.cpp tinystr.cpp tinyxmlerror.cpp tinyxmlparser.cpp `pkg-config opencv --cflags --libs` -stdlib=libc++  -o selectregion
