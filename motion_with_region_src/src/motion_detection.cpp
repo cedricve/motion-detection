@@ -95,12 +95,18 @@ inline int detectMotion(const Mat & motion, Mat & result, Mat & result_cropped,
             }
         }
         if(number_of_changes){
-            Point x(min_x-10,min_y-10);
-            Point y(max_x+10,max_y+10);
+            //check if not out of bounds
+            if(min_x-10 > 0) min_x -= 10;
+            if(min_y-10 > 0) min_y -= 10;
+            if(max_x+10 < result.cols-1) max_x += 10;
+            if(max_y+10 < result.rows-1) max_y += 10;
+            // draw rectangle round the changed pixel
+            Point x(min_x,min_y);
+            Point y(max_x,max_y);
             Rect rect(x,y);
             Mat cropped = result(rect);
             cropped.copyTo(result_cropped);
-            rectangle(result,rect,color,1); // draw rectangle round the changed pixel
+            rectangle(result,rect,color,1);
         }
         return number_of_changes;
     }
@@ -159,7 +165,7 @@ int main (int argc, char * const argv[])
     // color, the color for drawing the rectangle when something has changed.
     Mat d1, d2, motion;
     int number_of_changes, number_of_sequence = 0;
-    Scalar mean_, color(0,255,255); // red
+    Scalar mean_, color(0,255,255); // yellow
     
     // Detect motion in a region in steadof window
     string file_region = "../region.xml";
