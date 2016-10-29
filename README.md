@@ -1,8 +1,11 @@
+**WARNING**
+
+* **This repository is a prove of concept, and should not be used in production. The code is doesn't follow any good coding conventions.**
+* **The core idea of this project has been integrated to [the Kerberos.io project](https://www.kerberos.io), which is a better reference to get started.**
+
 #OpenCV C++ Motion Detection
 
-**WARNING: This repository is deprecated, the project has been moved to [the Kerberos.io project](https://www.kerberos.io)**
-
-This is a free, open, motion detection project using OpenCV and C++. The project was orginally designed for [the Raspberry Pi](http://www.raspberrypi.org/). Due to the low CPU power and available memory, the algorithm of Collins et al. is used. More information about how it works can [be found here](http://blog.cedric.ws/opencv-simple-motion-detection).
+This is a free, open source, motion detection project using OpenCV and C++. The project was orginally designed for [the Raspberry Pi](http://www.raspberrypi.org/). Due to the low CPU power and available memory, the algorithm of Collins et al. is used. More information about how it works can [be found here](http://blog.cedric.ws/opencv-simple-motion-detection).
 
 The project includes 4 different parts:
 
