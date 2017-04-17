@@ -1,4 +1,4 @@
-#OpenCV C++ Motion Detection
+# OpenCV C++ Motion Detection
 
 **WARNING**
 
@@ -17,10 +17,10 @@ The project includes 4 different parts:
 ![motion detection](http://blog.cedric.ws/uploads/post/EYp61d1amMh9ZpXRkdmiRS64rdTaxx8pD6G9NdV4.png)
 ![select region](http://blog.cedric.ws/uploads/post/VAWTlWG8vwsRTP4LFqHgGpU8slTDWHalww7OzXlh.png)
 
-#Installation 
+# Installation 
 
 Before you can use the motion detection, OpenCV must be installed on your device. You can [follow this link](http://blog.cedric.ws/install-opencv-on-raspberry-pi) for more information how to do it on the Raspberry Pi; there are a lot of other posts on the web which will you help either, so pick at random. After you installed OpenCV you can [follow this tutorial](http://blog.cedric.ws/raspberry-pi-opencv-create-a-security-system-web-interface).
 
-#Selectregion tool
+# Selectregion tool
 
 More information about the selectregion tool can be [found here](http://blog.cedric.ws/opencv-simple-motion-detection-concave-hull-optimization). The how to compile steps can be found there either.
